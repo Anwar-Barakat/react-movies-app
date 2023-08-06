@@ -1,5 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import RouterComponent from "./routes/RouterComponent";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return <RouterComponent />;
