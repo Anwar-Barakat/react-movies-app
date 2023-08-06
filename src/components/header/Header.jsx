@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <Navbar
             expand="lg"
-            className="bg-body-tertiary header"
+            className="bg-body-tertiary header shadow bg-white"
             bg="dark"
             data-bs-theme="dark"
         >
