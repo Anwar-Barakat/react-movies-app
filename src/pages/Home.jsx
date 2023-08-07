@@ -46,7 +46,7 @@ const Home = () => {
                     {content && content.length > 0 ? (
                         content.map((item) => {
                             return (
-                                <Col sm="12" md="6" lg="4" xl="3">
+                                <Col sm="12" md="6" lg="3" xl="2">
                                     <CardMovie
                                         key={item.id}
                                         data={item}
