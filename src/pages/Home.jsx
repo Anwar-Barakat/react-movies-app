@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CardMovie from "../components/CardMovie/CardMovie";
 
-const Home = () => {
-    const API_KEY = "f1717ef8baf4c215e7bc86e8c5f39960";
+const API_KEY = "f1717ef8baf4c215e7bc86e8c5f39960";
 
+const Home = () => {
     const [content, setContent] = useState([]);
     const [pageNum, setPageNum] = useState(1);
     const [paginationNum, setPaginationNum] = useState(0);
@@ -46,7 +46,7 @@ const Home = () => {
                     {content && content.length > 0 ? (
                         content.map((item) => {
                             return (
-                                <Col sm="12" md="6" lg="3" xl="2">
+                                <Col sm="12" md="6" lg="4" xl="3">
                                     <CardMovie
                                         key={item.id}
                                         data={item}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { img_300, img_not_available } from "../../config";
 
@@ -14,7 +13,7 @@ const CardMovie = ({ data, mediaType }) => {
 
     return (
         <Link
-            to={`/detail/${data.id}/${media_type} `}
+            to={`details/${data.id}/${media_type}`}
             className="video-thumb relative"
         >
             <figure className="video-image">
