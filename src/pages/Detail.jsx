@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { img_300, img_not_available } from "../config";
+import DarkVariantExample from "../components/Carousel/Carousel";
 
 const API_KEY = "f1717ef8baf4c215e7bc86e8c5f39960";
 
@@ -168,7 +169,11 @@ const Detail = () => {
                 <section className="section">
                     <div className="contentHead">
                         <Container>
-                            <Row></Row>
+                                    {
+                                        credits && credits.length > 0 ?
+                                            <DarkVariantExample data={credits} />
+                                            :"Loading..."
+                                    }
                         </Container>
                     </div>
                 </section>
