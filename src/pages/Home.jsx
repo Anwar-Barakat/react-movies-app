@@ -10,13 +10,11 @@ const Home = () => {
     const [pageNum, setPageNum] = useState(1);
     const [paginationNum, setPaginationNum] = useState(0);
 
+
     const getDataTrending = async () => {
-        const { data } = await axios.get(
-            `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageNum}`
-        );
+        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageNum}`);
         setContent(data.results);
         setPaginationNum(data.total_pages);
-        console.log(data);
     };
 
     useEffect(() => {
