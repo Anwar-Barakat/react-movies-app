@@ -2,31 +2,34 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CardMovie from "../components/CardMovie/CardMovie";
+import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 
 const API_KEY = "f1717ef8baf4c215e7bc86e8c5f39960";
 
 const Home = () => {
     const [content, setContent] = useState([]);
-    const [pageNum, setPageNum] = useState(1);
-    const [paginationNum, setPaginationNum] = useState(0);
+    const [pageno, setPageno] = useState(1)
+    const [paginationno, setPaginationno] = useState(0)
 
 
     const getDataTrending = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageNum}`);
+        const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageno}`);
         setContent(data.results);
-        setPaginationNum(data.total_pages);
+        setPaginationno(data.total_pages);
     };
+
 
     useEffect(() => {
         getDataTrending();
-    }, []);
+        //eslint-disable-next-line
+    }, [pageno]);
+
+    const handleClick = (number)=>{
+        setPageno(number);
+    }
+
     return (
-        <main
-            expand="lg"
-            className="bg-body-tertiary header"
-            bg="dark"
-            data-bs-theme="dark"
-        >
+        <main expand="lg" className="bg-body-tertiary header" bg="dark" data-bs-theme="dark">
             <Container>
                 <Row>
                     <Col className="col-12 mt-5">
@@ -56,6 +59,11 @@ const Home = () => {
                     ) : (
                         <h1>No Result found</h1>
                     )}
+                    {
+                        paginationno && paginationno > 1
+                        ? <PaginationComponent maxnum={paginationno} activenum={pageno}  handleClick={handleClick} />
+                        : ''
+                    }
                 </Row>
             </Container>
         </main>

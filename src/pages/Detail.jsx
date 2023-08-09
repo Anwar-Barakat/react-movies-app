@@ -156,19 +156,16 @@ const Detail = () => {
     };
 
     return (
-        <div
-            expand="lg"
-            className="bg-body-tertiary header"
-            bg="dark"
-            data-bs-theme="dark"
-        >
+        <div expand="lg" className="bg-body-tertiary header" bg="dark" data-bs-theme="dark">
             <main className="detailsPage">
                 <Container>
                     {titleName  ? renderDataHtml() : "Loading..."}
                 </Container>
+
                 <section className="section">
                     <div className="contentHead">
                         <Container>
+                    <hr className="mb-5" />
                                     {
                                         credits && credits.length > 0 ?
                                             <DarkVariantExample data={credits} />
